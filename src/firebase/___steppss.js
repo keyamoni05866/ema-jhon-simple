@@ -15,3 +15,25 @@
  * 4. set context value
  * 5. set the provider
  * */ 
+
+// Hoisting for firebase
+/**
+ * One time per pc
+ * 1. npm install -g firebase-tools
+ * 2. firebase login (one time per pc)
+ * 
+ * For  each project one time
+ * 1. firebase init
+ * 2. proceed 
+ * 3. hosting: firebase (up and down arrow) use space bar to select
+ * 4, existing project and select the project carefully
+ * 5. which project as public directory: dist
+ * 6. single page application: yes
+ * 7. continuous deployment: no
+ * 
+ * 
+ * 
+ * for every time deploy
+ * 1. npm run build
+ * 2. firebase deploy
+ * */ 

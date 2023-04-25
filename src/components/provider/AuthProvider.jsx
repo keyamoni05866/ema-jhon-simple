@@ -6,13 +6,16 @@ import app from '../../firebase/firebase_config';
  const auth = getAuth(app);
 const AuthProvider = ({children}) => {
 const [user, setUser] = useState(null);
+const [loading, setLoading] = useState(true);
 
 // create user 
 const createUser = (email, password) =>{
+         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
 }
 // login or sign in
 const signIn =(email, password)=>{
+  setLoading(true)
   return  signInWithEmailAndPassword(auth, email, password);
 }
 // sign out
@@ -23,6 +26,7 @@ const logOut= () =>{
 useEffect(()=>{
     const unsubscribe =  onAuthStateChanged(auth, currentUser=>{
         setUser(currentUser);
+        setLoading(false);
       });
     //   stop observing while unmounting
       return () =>{
@@ -33,6 +37,7 @@ useEffect(()=>{
 
     const authInfo = {
         user,
+        loading,
         createUser,
         signIn,
         logOut,
